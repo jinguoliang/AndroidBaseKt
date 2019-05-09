@@ -2,7 +2,7 @@ package com.empty.jinux.baselibaray.utils
 
 import android.content.Context
 import android.os.RemoteException
-import android.support.annotation.LayoutRes
+import androidx.annotation.LayoutRes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

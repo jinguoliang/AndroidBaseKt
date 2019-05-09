@@ -14,7 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -38,33 +38,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
-    implementation "com.android.support:design:$support_version"
-    implementation 'androidx.core:core-ktx:0.3'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.core:core-ktx:1.0.1'
     implementation 'org.jetbrains.anko:anko-commons:0.10.4'
-
-
-}
-repositories {
-    mavenCentral()
-}
-
-apply plugin: 'maven' // 引入maven插件
-
-group = 'com.empty.jinux' // 会按照group生成.m2下的目录路径
-version = '1.2.0' // 指定版本
-
-def localMavenRepo = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: localMavenRepo)
-        }
-    }
 }

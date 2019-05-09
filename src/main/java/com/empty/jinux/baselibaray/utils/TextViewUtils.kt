@@ -1,11 +1,11 @@
 package com.empty.jinux.baselibaray.utils
 
-import android.support.annotation.DimenRes
 import android.text.Editable
 import android.text.Spannable
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
+import androidx.annotation.DimenRes
 
 fun TextView.getLineForCursor(): Int {
     return layout.getLineForOffset(selectionEnd)

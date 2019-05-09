@@ -1,15 +1,17 @@
 package com.empty.jinux.baselibaray.view.about
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.empty.jinux.baselibaray.R
 import com.empty.jinux.baselibaray.view.recycleview.Item
 import com.empty.jinux.baselibaray.view.recycleview.withItems
+import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_abs_about.*
 
 
@@ -30,16 +32,17 @@ abstract class AbsAboutActivity : AppCompatActivity() {
         main_textview_title.setText(R.string.app_name)
         startAlphaAnimation(main_textview_title, 0, View.INVISIBLE)
 
-        appBar.addOnOffsetChangedListener { appBarLayout, offset ->
-            val maxScroll = appBarLayout.totalScrollRange
-            val percentage = Math.abs(offset).toFloat() / maxScroll.toFloat()
+        appBar.addOnOffsetChangedListener(
+            AppBarLayout.OnOffsetChangedListener { appBarLayout, offset ->
+                val maxScroll = appBarLayout.totalScrollRange
+                val percentage = Math.abs(offset).toFloat() / maxScroll.toFloat()
 
-            handleToolbarTitleVisibility(percentage)
-        }
+                handleToolbarTitleVisibility(percentage)
+            })
 
         onCreateHeader(appIcon, appSlogan, appVersion)
 
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recyclerView.withItems {
             onItemsCreated(this)
         }

@@ -2,10 +2,10 @@ package com.empty.jinux.baselibaray.utils
 
 import android.content.Context
 import android.graphics.Color
-import android.support.annotation.DimenRes
 import android.text.TextPaint
 import android.text.style.BackgroundColorSpan
 import android.text.style.MetricAffectingSpan
+import androidx.annotation.DimenRes
 import org.jetbrains.anko.dimen
 import java.util.regex.Pattern
 
