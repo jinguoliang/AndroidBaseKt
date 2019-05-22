@@ -29,7 +29,6 @@ abstract class AbsAboutActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
         title = ""
 
-        main_textview_title.setText(R.string.app_name)
         startAlphaAnimation(main_textview_title, 0, View.INVISIBLE)
 
         appBar.addOnOffsetChangedListener(
