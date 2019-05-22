@@ -50,7 +50,7 @@ fun View.hideInputMethod() {
     im?.hideSoftInputFromWindow(this.windowToken, 0)
 }
 
-fun ViewGroup.inflate(@LayoutRes res: Int, attach: Boolean): View {
+fun ViewGroup.inflate(@LayoutRes res: Int, attach: Boolean = true): View {
     return LayoutInflater.from(context).inflate(res, this, attach)
 }
 
