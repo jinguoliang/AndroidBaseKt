@@ -49,7 +49,8 @@ fun logThrowable(e: Throwable, tag: String = DEFAULT_TAG): Unit {
 
 private fun formatMessage(org: String): String {
     val threadName = Thread.currentThread().name
-    val msg = "{$threadName} $org"
+    val threadId = Thread.currentThread().id
+    val msg = "{$threadName:$threadId} $org"
     return msg
 }
 
