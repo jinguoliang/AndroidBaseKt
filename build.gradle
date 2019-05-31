@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 
 android {
     defaultPublishConfig "debug"
@@ -48,6 +48,6 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.0.2'
     annotationProcessor 'androidx.annotation:annotation:1.0.2'
     implementation 'org.jetbrains.anko:anko-commons:0.10.4'
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
 }
