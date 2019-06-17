@@ -28,7 +28,7 @@ fun CharSequence.findNewLines(): List<Int> {
 
 class ParagraphEndLineSpan(val context: Context, @DimenRes private val paragraphEndSpace: Int) : MetricAffectingSpan() {
     override fun updateMeasureState(tp: TextPaint) {
-        tp.baselineShift = context.dimen(paragraphEndSpace)
+        tp.baselineShift = paragraphEndSpace
     }
 
     override fun updateDrawState(tp: TextPaint) {
@@ -40,7 +40,7 @@ fun String.wordsCount(): Int {
     var inWord = false
     var wordCt = 0
     for (c in this) {
-        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z') {
+        if (c in 'a'..'z' || c in 'A'..'Z') {
             if (!inWord) {
                 wordCt++
                 inWord = true
