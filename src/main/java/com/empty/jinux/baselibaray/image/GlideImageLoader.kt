@@ -16,6 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.load.resource.bitmap.VideoDecoder
 import com.bumptech.glide.request.RequestOptions
 import com.empty.jinux.baselibaray.log.logw
+import jp.wasabeef.glide.transformations.BlurTransformation
 import java.security.MessageDigest
 
 
@@ -50,19 +51,32 @@ object GlideImageLoader {
         image: ImageView,
         placeholderResId: Int = defaultPlaceHolderResId,
         errorResId: Int = getDefaultErrorResId(),
-        isCircleTransform: Boolean = false
+        isCircleTransform: Boolean = false,
+        isBlur: Boolean = false
     ) {
         if (placeholderResId == -1) {
             logw("maybe you need set default place holder resource id with setDefaultPlaceHolder()")
         }
 
-        image.scaleType = ImageView.ScaleType.CENTER_CROP
-
         val requestOptions = createRequestOptions(placeholderResId, errorResId)
         if (isCircleTransform) {
             requestOptions.transform(GlideCircleTransformation())
         }
+        if (isBlur) {
+            requestOptions.transform(BlurTransformation(15,  3))
+        }
 
+        loadIntoView(context, obj, image, requestOptions)
+    }
+
+    @SuppressLint("CheckResult")
+    fun loadIntoView(
+        context: Context,
+        obj: Any,
+        image: ImageView,
+        requestOptions: RequestOptions
+    ) {
+        image.scaleType = ImageView.ScaleType.CENTER_CROP
         Glide.with(context).load(obj).apply(requestOptions).into(image)
     }
 
