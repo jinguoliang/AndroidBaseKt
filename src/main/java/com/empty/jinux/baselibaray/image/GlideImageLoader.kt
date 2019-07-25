@@ -1,23 +1,17 @@
 package com.empty.jinux.baselibaray.image
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
-import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.widget.ImageView
-import androidx.annotation.NonNull
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
-import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.load.resource.bitmap.VideoDecoder
 import com.bumptech.glide.request.RequestOptions
 import com.empty.jinux.baselibaray.log.logw
 import jp.wasabeef.glide.transformations.BlurTransformation
-import java.security.MessageDigest
 
 
 /**
@@ -98,6 +92,14 @@ object GlideImageLoader {
 
     fun loadVideoScreenshot(uri: Uri, frameTimeUs: Long, width: Int, height: Int): Bitmap? {
         return videoFrameGetter?.getFrame(uri, frameTimeUs, width, height)
+    }
+
+    fun resumeGlide(context: Context) {
+        Glide.with(context).resumeRequests()
+    }
+
+    fun pauseGlide(context: Context) {
+        Glide.with(context).pauseRequests()
     }
 
 }
