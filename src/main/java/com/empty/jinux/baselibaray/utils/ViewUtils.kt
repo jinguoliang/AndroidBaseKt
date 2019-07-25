@@ -34,6 +34,12 @@ var View.layoutTop: Int
         layoutParams = (layoutParams as FrameLayout.LayoutParams).apply { if (topMargin != top) topMargin = top }
     }
 
+var View.layoutStart: Int
+    get() = (layoutParams as FrameLayout.LayoutParams).marginStart
+    set(start) {
+        layoutParams = (layoutParams as FrameLayout.LayoutParams).apply { if (marginStart != start) marginStart = start }
+    }
+
 fun View.showInputMethod() {
     val im = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
     val showed: Boolean = try {
