@@ -161,10 +161,18 @@ class ItemManager(private val delegated: MutableList<Item> = mutableListOf()) : 
                 if (it) observer?.notifyDataSetChanged()
             }
 
-    override fun removeAll(elements: Collection<Item>): Boolean =
+    fun removeRange(elements: Collection<Item>): Boolean =
             delegated.removeAll(elements).also {
                 if (it) observer?.notifyDataSetChanged()
             }
+    fun removeRange(
+        start: Int,
+        elements: Collection<Item>
+    ) {
+        val size = elements.size
+        delegated.removeAll(elements)
+        observer?.notifyItemRangeRemoved(start, size)
+    }
 
     override fun removeAt(index: Int) =
             delegated.removeAt(index).also {
