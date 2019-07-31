@@ -8,7 +8,6 @@ import android.net.Uri
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
-import com.bumptech.glide.load.resource.bitmap.VideoDecoder
 import com.bumptech.glide.request.RequestOptions
 import com.empty.jinux.baselibaray.log.logw
 import jp.wasabeef.glide.transformations.BlurTransformation
@@ -57,7 +56,7 @@ object GlideImageLoader {
             requestOptions.transform(GlideCircleTransformation())
         }
         if (isBlur) {
-            requestOptions.transform(BlurTransformation(15,  3))
+            requestOptions.transform(BlurTransformation(15, 3))
         }
 
         loadIntoView(context, obj, image, requestOptions)
@@ -88,7 +87,7 @@ object GlideImageLoader {
             .error(errorResId)
     }
 
-    var videoFrameGetter : VideoFrameGetter? = null
+    var videoFrameGetter: VideoFrameGetter? = null
 
     fun loadVideoScreenshot(uri: Uri, frameTimeUs: Long, width: Int, height: Int): Bitmap? {
         return videoFrameGetter?.getFrame(uri, frameTimeUs, width, height)
