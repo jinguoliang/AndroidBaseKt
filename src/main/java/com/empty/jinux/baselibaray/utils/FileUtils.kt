@@ -87,6 +87,15 @@ private fun zipFile(
     }
 }
 
+fun unzipWithTmpDir(sourceFile: File, destinationFolder: File) {
+    val tmpFold = File(destinationFolder.absolutePath + "_tmp")
+    if (tmpFold.exists()) {
+        tmpFold.deleteRecursively()
+    }
+    unzip(sourceFile, tmpFold)
+    tmpFold.renameTo(destinationFolder)
+}
+
 fun unzip(sourceFile: File, destinationFolder: File): Boolean {
     var zis: ZipInputStream? = null
 
