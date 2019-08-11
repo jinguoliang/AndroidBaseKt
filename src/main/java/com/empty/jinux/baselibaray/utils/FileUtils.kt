@@ -88,7 +88,7 @@ private fun zipFile(
 }
 
 fun unzipWithTmpDir(sourceFile: File, destinationFolder: File) {
-    val tmpFold = File(destinationFolder.absolutePath + "_tmp")
+    val tmpFold = File(destinationFolder.absolutePath + ".tmp")
     if (tmpFold.exists()) {
         tmpFold.deleteRecursively()
     }
