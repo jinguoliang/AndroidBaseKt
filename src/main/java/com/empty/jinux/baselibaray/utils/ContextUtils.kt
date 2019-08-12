@@ -12,3 +12,6 @@ fun Context.pxToDp(px: Int): Float {
     val displayMetrics = resources.displayMetrics
     return px.toFloat() / displayMetrics.density
 }
+
+fun Context.getAppVersionName() = packageManager.getPackageInfo(packageName, 0).versionName
+fun Context.getAppVersionCode() = packageManager.getPackageInfo(packageName, 0).versionCode
