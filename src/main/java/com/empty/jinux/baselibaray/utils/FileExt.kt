@@ -9,7 +9,7 @@ fun File.getFileSize(excludes: (File) -> Boolean): Long {
     when {
         isFile -> return length()
         isDirectory -> return listFiles().fold(0L) { acc, f ->
-            return acc + f.getFileSize(excludes)
+            acc + f.getFileSize(excludes)
         }
         else -> return 0
     }
