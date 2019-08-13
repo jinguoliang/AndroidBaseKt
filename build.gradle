@@ -6,11 +6,11 @@ apply plugin: 'kotlin-kapt'
 android {
     defaultPublishConfig "debug"
 
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 17
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
@@ -46,7 +46,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.core:core-ktx:1.0.2'
-    annotationProcessor 'androidx.annotation:annotation:1.0.2'
+    kapt 'androidx.annotation:annotation:1.1.0'
     implementation 'org.jetbrains.anko:anko-commons:0.10.4'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
